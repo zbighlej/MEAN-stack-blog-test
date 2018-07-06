@@ -20,6 +20,7 @@ email;
   ngOnInit() {
     this.authServise.getProfile().subscribe(profile => {
       this.username = profile.user.username;
-      this.email = profile.user.email;
-  }
+      this.email = profile.user.email;  
+      }
+  }  
 }

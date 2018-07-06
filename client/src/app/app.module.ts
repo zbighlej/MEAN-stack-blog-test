@@ -12,6 +12,8 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+import { AuthGuard } from './guards/auth.guard';
+import { notAuthGuard } from './guards/notAuth.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messag
     AppRoutingModule,
     FlashMessagesModule
   ],
-  providers: [AuthService, FlashMessagesService],
+  providers: [AuthService, FlashMessagesService, AuthGuard, notAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

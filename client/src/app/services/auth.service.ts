@@ -11,7 +11,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 })
 export class AuthService {
 
- domain ="http://localhost:8080";
+ domain ="http://localhost:8080/";
  authToken;
  user;
  options;
@@ -38,20 +38,20 @@ export class AuthService {
   }
 
   registerUser(user){
-      return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());
+      return this.http.post(this.domain + 'authentication/register', user).map(res => res.json());
   }
 
   checkUsername(username){
-    return this.http.get(this.domain + '/authentication/checkUsername/' + username).map(res => res.json());
+    return this.http.get(this.domain + 'authentication/checkUsername/' + username).map(res => res.json());
   }
 
   checkEmail(email){
-  return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(res => res.json());
+  return this.http.get(this.domain + 'authentication/checkEmail/' + email).map(res => res.json());
   }
 
 
   login(user){
-    return this.http.post(this.domain + '/authentication/login' , user).map(res => res.json());
+    return this.http.post(this.domain + 'authentication/login' , user).map(res => res.json());
   }
 
   logout(){
@@ -69,7 +69,7 @@ export class AuthService {
 
   getProfile(){
     this.createAuthenticationHeaders();
-    return this.http.get(this.domain + '/authentication/profile', this.options).map(res => res.json());
+    return this.http.get(this.domain + 'authentication/profile', this.options).map(res => res.json());
   }
 
     

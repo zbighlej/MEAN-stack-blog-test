@@ -9,11 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
+import { BlogService } from './services/blog.service';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { notAuthGuard } from './guards/notAuth.guard';
+import { BlogComponent } from './components/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { notAuthGuard } from './guards/notAuth.guard';
     DashboardComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { notAuthGuard } from './guards/notAuth.guard';
     AppRoutingModule,
     FlashMessagesModule
   ],
-  providers: [AuthService, FlashMessagesService, AuthGuard, notAuthGuard],
+  providers: [AuthService, FlashMessagesService, AuthGuard, notAuthGuard, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

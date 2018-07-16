@@ -37,4 +37,14 @@ domain = this.authService.domain;
     return this.http.get(this.domain + 'blogs/AllBlogs', this.options).map(res => res.json());
   }
 
+  getSingleBlog(id){
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'blogs/singleBlog/'+ id, this.options).map(res => res.json());
+  }
+
+  editBlog(blog){
+    this.createAuthenticationHeaders();
+    return this.http.put(this.domain + 'blogs/updateBlog/', blog, this.options).map(res => res.json());
+  }
+
 }

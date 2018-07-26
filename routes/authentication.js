@@ -155,7 +155,7 @@ module.exports = (router) => {
         if(!req.params.username){
             res.json({success: false, message: 'No username was provided'});
         }else{
-            User.findOne({username: req.params.username}).select('username').exec((err, user) =>{
+            User.findOne({username: req.params.username}).select('username email').exec((err, user) =>{
                     if(err){
                         res.json({success: false, message: 'Something went wrong'});
                     }else{

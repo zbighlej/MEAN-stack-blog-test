@@ -29,10 +29,10 @@ export class PublicProfileComponent implements OnInit {
              this.message = data.message;
              this.messageClass = 'alert alert-danger';
            } else{
-             this.foundProfile = true;
             this.username = data.user.username;
             this.email = data.user.email;
-            console.log(this.email);
+            this.foundProfile = true;
+            console.log(data);
            }
     });
   }

@@ -64,4 +64,13 @@ dislikeBlog(id){
 
 }
 
+postComment(id, comment){
+  this.createAuthenticationHeaders();
+  const blogData ={
+    id: id,
+    comment: comment
+  }
+  return this.http.post(this.domain + 'blogs/comment', blogData, this.options).map(res => res.json());
+}
+
 }

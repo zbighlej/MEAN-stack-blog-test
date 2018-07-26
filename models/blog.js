@@ -88,7 +88,7 @@ const blogSchema = new Schema({
     comments: [
         {
             comment: {type: String, validate: commentValidators },
-            comentator: { type: String}
+            commentator: { type: String}
         }
     ]
 });

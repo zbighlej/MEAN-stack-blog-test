@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { BlogService } from '../../services/blog.service';
 import { Profile } from 'selenium-webdriver/firefox';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 
 @Component({
@@ -123,12 +124,24 @@ export class BlogComponent implements OnInit {
     });
   }
 
+  likeBlog(id){
+    this.blogService.likeBlog(id).subscribe(data =>{
+        this.getAllBlogs();
+    });
+  }  
+
+  dislikeBlog(id){
+    this.blogService.dislikeBlog(id).subscribe(data =>{
+        this.getAllBlogs();
+    });
+  }
+
   ngOnInit() {
 
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
       this.getAllBlogs();
-    });
-  }
+    });  
+  } 
 
 }

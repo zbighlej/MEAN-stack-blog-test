@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,21 @@ domain = this.authService.domain;
     this.createAuthenticationHeaders();
     return this.http.put(this.domain + 'blogs/updateBlog/', blog, this.options).map(res => res.json());
   }
+
+  deleteBlog(id){
+      this.createAuthenticationHeaders();
+      return this.http.delete(this.domain + 'blogs/deleteBlog/' + id, this.options).map(res => res.json());
+}
+
+likeBlog(id){
+  const blogData = {id: id};
+  return this.http.put(this.domain + 'blogs/likeBlog/', blogData, this.options).map(res => res.json());
+}
+
+dislikeBlog(id){
+  const blogData = {id: id};
+  return this.http.put(this.domain + 'blogs/dislikeBlog/', blogData, this.options).map(res => res.json());
+
+}
 
 }
